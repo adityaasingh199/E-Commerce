@@ -1,3 +1,4 @@
+import 'package:e_commerce/auth/log_in_page.dart';
 import 'package:e_commerce/home_nav_page/profie_nav_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,8 +14,6 @@ void main() {
       statusBarIconBrightness: Brightness.dark, // For dark icons
     ),
   );
-
-
 }
 
 class MyApp extends StatelessWidget {
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Poppins"
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeNavPage(),
+      home: LoginScreen(),
     );
   }
 }

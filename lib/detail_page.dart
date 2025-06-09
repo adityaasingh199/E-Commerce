@@ -22,8 +22,7 @@ class DetailPage extends StatelessWidget {
                     width: double.infinity,
                     padding: EdgeInsets.all(45),
                     color: Color(0xffF6F6F6),
-                      child: Image.asset('assets/images/earphone.webp',
-                      fit: BoxFit.cover,)),
+                      child: Image.asset('assets/images/earphone.webp',)),
                   SizedBox(height: 11,),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -268,7 +267,7 @@ class DetailPage extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                width: double.infinity,
+                width: 392,
                 margin: EdgeInsets.all(17),
                 padding: EdgeInsets.symmetric(horizontal: 12,vertical: 12),
                 decoration: BoxDecoration(

@@ -4,6 +4,83 @@ import 'package:flutter/material.dart';
 class HomeNavPage extends StatelessWidget {
   TextEditingController searchController = TextEditingController();
 
+
+  List<Map<String,dynamic>> itemData =[
+
+    {
+      'images':'assets/images/earphone.webp',
+      'name':'Wireless Headphones',
+      'price':'\$120.00',
+      'color':true
+    },
+    {
+      'images':'assets/images/dress.png',
+      'name':'Women Sweter',
+      'price':'\$70.00',
+      'color':false
+    },
+    {
+      'images':'assets/images/dress.png',
+      'name':'Women Sweter',
+      'price':'\$70.00',
+      'color':false
+    },
+    {
+      'images':'assets/images/earphone.webp',
+      'name':'Wireless Headphones',
+      'price':'\$120.00',
+      'color':true
+    },
+    {
+      'images':'assets/images/dress.png',
+      'name':'Women Sweter',
+      'price':'\$70.00',
+      'color':false
+    },
+    {
+      'images':'assets/images/earphone.webp',
+      'name':'Wireless Headphones',
+      'price':'\$120.00',
+      'color':true
+    },
+    {
+      'images':'assets/images/earphone.webp',
+      'name':'Wireless Headphones',
+      'price':'\$120.00',
+      'color':true
+    },
+    {
+      'images':'assets/images/dress.png',
+      'name':'Women Sweter',
+      'price':'\$70.00',
+      'color':false
+    },
+    {
+      'images':'assets/images/dress.png',
+      'name':'Women Sweter',
+      'price':'\$70.00',
+      'color':false
+    },
+    {
+      'images':'assets/images/earphone.webp',
+      'name':'Wireless Headphones',
+      'price':'\$120.00',
+      'color':true
+    },
+    {
+      'images':'assets/images/dress.png',
+      'name':'Women Sweter',
+      'price':'\$70.00',
+      'color':false
+    },
+    {
+      'images':'assets/images/earphone.webp',
+      'name':'Wireless Headphones',
+      'price':'\$120.00',
+      'color':true
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -294,229 +371,180 @@ class HomeNavPage extends StatelessWidget {
               SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailPage()));
-                      },
-                      child: Container(
-                        width: 175,
-                        height: 230,
-                        decoration: BoxDecoration(
+                child: GridView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        crossAxisSpacing: 15,
+                        mainAxisSpacing: 15,
+                        childAspectRatio: 1/1.60,
+                        mainAxisExtent: 240,
+                        maxCrossAxisExtent: 200,),
+
+                    itemCount: itemData.length,
+                    itemBuilder: (_,index){
+                  return GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailPage()));
+                    },
+                    child: Container(
+                      height: 240,
+                      width: 200,
+                      decoration: BoxDecoration(
                           color: Color(0xffF6F6F6),
                           borderRadius: BorderRadius.circular(18)
-                        ),
-                        child: Stack(
-                          children: [
-                            Align(
-                              alignment: Alignment.topRight,
-                              child: Container(
+                      ),
+                      child: Stack(
+                        children: [
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Container(
                                 padding: EdgeInsets.all(6),
-                                  decoration: BoxDecoration(
-                                      color: Color(0xffFF660E),
-                                      borderRadius: BorderRadius.only(topRight: Radius.circular(18),bottomLeft: Radius.circular(5))
-                                  ),
+                                decoration: BoxDecoration(
+                                    color: Color(0xffFF660E),
+                                    borderRadius: BorderRadius.only(topRight: Radius.circular(18),bottomLeft: Radius.circular(5))
+                                ),
                                 child: Icon(Icons.favorite_border_rounded,size: 23,color: Colors.white,)
-                              ),
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 11,),
-                                ClipRRect(
-                                  child: Image.asset("assets/images/earphone.webp",height: 150,width: 172,),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 11,),
+                              ClipRRect(
+                                child: Image.asset(itemData[index]['images'],height: 150,width: 172,),
+                              ),
+                              SizedBox(height: 5,),
+                              Text(
+                                itemData[index]['name'],
+                                style: TextStyle(fontSize: 14,
+                                  fontFamily: "PoppinsBold",
                                 ),
-                                SizedBox(height: 5,),
-                                Text(
-                                  "Wireless Headphones",
-                                  style: TextStyle(fontSize: 14,
-                                    fontFamily: "PoppinsBold",
-                                ),
-                                ),
-                                SizedBox(height: 11,),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "\$120.00",
-                                        style: TextStyle(fontSize: 15,
-                                            fontFamily: "PoppinsSBold",fontWeight: FontWeight.bold),
-                                      ),
-                                      Row(
-                                        children: [
-                                          Container(
-                                            height: 23,
-                                            width: 23,
-                                            decoration: BoxDecoration(
+                              ),
+                              SizedBox(height: 11,),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 8),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      itemData[index]['price'],
+                                      style: TextStyle(fontSize: 15,
+                                          fontFamily: "PoppinsSBold",fontWeight: FontWeight.bold),
+                                    ),
+                                    itemData[index]['color']==true?
+                                    Row(
+                                      children: [
+                                        Container(
+                                          height: 23,
+                                          width: 23,
+                                          decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                               color: Colors.white,
                                               border: Border.all(color: Colors.black,width: 1)
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(2),
-                                              child: Container(
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(2),
+                                            child: Container(
                                               decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: Colors.black
+                                                  shape: BoxShape.circle,
+                                                  color: Colors.black
                                               ),
-                                              ),
                                             ),
                                           ),
-                                          SizedBox(width: 2,),
-                                          Container(
-                                            height: 21,
-                                            width: 21,
-                                            decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: Colors.blue
-                                            ),
+                                        ),
+                                        SizedBox(width: 2,),
+                                        Container(
+                                          height: 21,
+                                          width: 21,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.blue
                                           ),
-                                          SizedBox(width: 2,),
-                                          Container(
-                                            height: 21,
-                                            width: 21 ,
-                                            decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: Color(0xffFF660E)
-                                            ),
+                                        ),
+                                        SizedBox(width: 2,),
+                                        Container(
+                                          height: 21,
+                                          width: 21 ,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Color(0xffFF660E)
                                           ),
-                                          SizedBox(width: 2,),
-                                          Container(
-                                            height: 21,
-                                            width: 21 ,
-                                            decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
+                                        ),
+                                        SizedBox(width: 2,),
+                                        Container(
+                                          height: 21,
+                                          width: 21 ,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
                                               border: Border.all(color: Color(0xff999999),width: 1.5)
-                                            ),
-                                            child: Center(child: Text('+2',style: TextStyle(fontFamily: 'PoppinsSBold',fontSize: 9,fontWeight: FontWeight.bold,color: Color(0xff999999)),)),
                                           ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailPage()));
-                      },
-                      child: Container(
-                        width: 175,
-                        height: 230,
-                        decoration: BoxDecoration(
-                          color: Color(0xffF6F6F6),
-                          borderRadius: BorderRadius.circular(18)
-                        ),
-                        child: Stack(
-                          children: [
-                            Align(
-                              alignment: Alignment.topRight,
-                              child: Container(
-                                padding: EdgeInsets.all(6),
-                                  decoration: BoxDecoration(
-                                      color: Color(0xffFF660E),
-                                      borderRadius: BorderRadius.only(topRight: Radius.circular(18),bottomLeft: Radius.circular(5))
-                                  ),
-                                child: Icon(Icons.favorite_border_rounded,size: 23,color: Colors.white,)
-                              ),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 11,),
-                                ClipRRect(
-                                  child: Image.asset("assets/images/dress.png",height: 150,width: 172),
-                                ),
-                                SizedBox(height: 5,),
-                                Text(
-                                  "Wireless Headphones",
-                                  style: TextStyle(fontSize: 14,
-                                    fontFamily: "PoppinsBold",
-                                ),
-                                ),
-                                SizedBox(height: 11,),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "\$120.00",
-                                        style: TextStyle(fontSize: 15,
-                                            fontFamily: "PoppinsSBold",fontWeight: FontWeight.bold),
-                                      ),
-                                      Row(
-                                        children: [
-                                          Container(
-                                            height: 23,
-                                            width: 23,
-                                            decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: Colors.white,
-                                                border: Border.all(color: Colors.black,width: 1)
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(2),
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    color: Color(0xffE4B8B6)
-                                                ),
+                                          child: Center(child: Text('+2',style: TextStyle(fontFamily: 'PoppinsSBold',fontSize: 9,fontWeight: FontWeight.bold,color: Color(0xff999999)),)),
+                                        ),
+                                      ],
+                                    ):
+                                    Row(
+                                      children: [
+                                        Container(
+                                          height: 23,
+                                          width: 23,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.white,
+                                              border: Border.all(color: Colors.black,width: 1)
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(2),
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: Color(0xffE4B8B6)
                                               ),
                                             ),
                                           ),
-                                          SizedBox(width: 2,),
-                                          Container(
-                                            height: 21,
-                                            width: 21,
-                                            decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: Colors.purple
-                                            ),
+                                        ),
+                                        SizedBox(width: 2,),
+                                        Container(
+                                          height: 21,
+                                          width: 21,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.purple
                                           ),
-                                          SizedBox(width: 2,),
-                                          Container(
-                                            height: 21,
-                                            width: 21 ,
-                                            decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: Color(0xffFF660E)
-                                            ),
+                                        ),
+                                        SizedBox(width: 2,),
+                                        Container(
+                                          height: 21,
+                                          width: 21 ,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Color(0xffFF660E)
                                           ),
-                                          SizedBox(width: 2,),
-                                          Container(
-                                            height: 21,
-                                            width: 21 ,
-                                            decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                border: Border.all(color: Color(0xff999999),width: 1.5)
-                                            ),
-                                            child: Center(child: Text('+2',style: TextStyle(fontFamily: 'PoppinsSBold',fontSize: 9,fontWeight: FontWeight.bold,color: Color(0xff999999)),)),
+                                        ),
+                                        SizedBox(width: 2,),
+                                        Container(
+                                          height: 21,
+                                          width: 21 ,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(color: Color(0xff999999),width: 1.5)
                                           ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
+                                          child: Center(child: Text('+2',style: TextStyle(fontFamily: 'PoppinsSBold',fontSize: 9,fontWeight: FontWeight.bold,color: Color(0xff999999)),)),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          )
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  );
+                }),
               ),
-              SizedBox(height: 15,),
+              /*SizedBox(height: 15,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
@@ -741,7 +769,7 @@ class HomeNavPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 15,),
+              SizedBox(height: 15,),*/
             ],
           ),
         ),
